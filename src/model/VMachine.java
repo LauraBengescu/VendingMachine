@@ -107,7 +107,10 @@ public class VMachine {
 			amountPaid+=p;
 			giveChange(amountPaid-inWorkProduct.price*100);
 		}
-		if (scanner.hasNext()) {scanner.next(); System.out.println("Wrong input. Please input more money or cancel."); handleMoney();}
+		if (inWorkProduct!=null && scanner.hasNext()) {
+			scanner.next();
+			System.out.println("Wrong input. Please input more money or cancel."); handleMoney();
+		}
 		
 	}
 
@@ -138,11 +141,12 @@ public class VMachine {
 		}
 		if (change!=0) {
 			System.out.println("Not enough coins for change, please take the returned money and start again \n");
+			cancel();
 		}
 		else {
 			if (inWorkProduct!=null)
 			{
-				 System.out.println("Transaction done \n");
+				System.out.println("Transaction done");
 				inWorkProduct.count--;
 				productsTotal--;
 				moneyTotal+=inWorkProduct.price;
