@@ -10,7 +10,10 @@ public class Buy {
 		vendingMachine.initialise();
 		while (true) {
 			vendingMachine.presentSelection();
-			System.out.println("done");
+			if (vendingMachine.moneyTotal < 10) vendingMachine.reloadMoney();
+			if (vendingMachine.productsTotal < 10) vendingMachine.reloadProducts();
+			
+			
 		}
 		
 	}
