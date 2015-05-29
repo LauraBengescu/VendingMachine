@@ -8,8 +8,11 @@ public class Buy {
 		VMachine vendingMachine = new VMachine();
 		System.out.println("Vending Machine ");
 		vendingMachine.initialise();
-		vendingMachine.presentSelection();
-		vendingMachine.handleSelection();
+		while (true) {
+			vendingMachine.presentSelection();
+			System.out.println("done");
+		}
+		
 	}
 
 }
